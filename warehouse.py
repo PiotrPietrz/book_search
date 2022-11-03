@@ -17,33 +17,30 @@ class Warehouse(DataBase):
         """
         if not super().table_exists('books'):
 
-            query = f"""
-                    CREATE TABLE books (
-                        title TEXT,
-                        author TEXT
-                    );
+            create_table = f"""
+                        CREATE TABLE books (
+                            title TEXT,
+                            author TEXT
+                        );
+                        """
 
-
-                    INSERT INTO books
-                    VALUES ('{title}', '{author}')
-                    """
+            book_add = f"""
+                        INSERT INTO books
+                        VALUES ('{title}', '{author}')
+                        """
 
             try:
-                super().query_db(query)
-                print('Successfuly created database.')
+                super().query_db(create_table)
+                super().query_db(book_add)
+                print('Successfuly created database and added records.')
             except:
                 raise Exception(
-                    f'Query {query} could not have been processed.')
+                    f'Either table creation or book insertion has failed.')
 
         else:
-            query = f"""
-                    INSERT INTO books
-                    VALUES ('{title}', '{author}')
-                    """
-
             try:
-                super().query_db(query)
+                super().query_db(book_add)
                 print('Successfuly updated the records.')
             except:
                 raise Exception(
-                    f'Query {query} could not have been processed.')
+                    f'Could not add the book.')
