@@ -31,7 +31,7 @@ def form_submit():
 
     return """
     <h1>Form submitted</h1>
-    <a href="http://127.0.0.1:5000/#home">Go back</a>
+    <a href="http://127.0.0.1:5000/#home">Go to the home page</a>
     """
 
 
