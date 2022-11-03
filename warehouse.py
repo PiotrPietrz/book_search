@@ -15,19 +15,18 @@ class Warehouse(DataBase):
         new records are added.
         Returns None
         """
+        create_table = f"""
+                CREATE TABLE books (
+                    title TEXT,
+                    author TEXT
+                );
+                """
+
+        book_add = f"""
+                INSERT INTO books
+                VALUES ('{title}', '{author}')
+                """
         if not super().table_exists('books'):
-
-            create_table = f"""
-                        CREATE TABLE books (
-                            title TEXT,
-                            author TEXT
-                        );
-                        """
-
-            book_add = f"""
-                        INSERT INTO books
-                        VALUES ('{title}', '{author}')
-                        """
 
             try:
                 super().query_db(create_table)
