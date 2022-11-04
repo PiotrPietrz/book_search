@@ -11,9 +11,8 @@ def home():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-    # t = flask.request.form.get("search_bar")
-    # print(t)
-    return flask.render_template("result.html")
+
+    return flask.render_template("test.html")
 
 
 @app.route("/add_book", methods=["GET", "POST"])
@@ -31,7 +30,8 @@ def form_submit():
 
     return """
     <h1>Form submitted</h1>
-    <a href="http://127.0.0.1:5000/#home">Go to the home page</a>
+    <a href="http://127.0.0.1:5000/#home">Go to the home page </a>
+    <a href="http://127.0.0.1:5000/add_book">Add another book</a>
     """
 
 

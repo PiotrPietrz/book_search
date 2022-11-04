@@ -26,20 +26,34 @@ class Warehouse(DataBase):
                 INSERT INTO books
                 VALUES ('{title}', '{author}')
                 """
-        if not super().table_exists('books'):
+        if not super().table_exists("books"):
 
             try:
                 super().query_db(create_table)
                 super().query_db(book_add)
-                print('Successfuly created database and added records.')
+                print("Successfuly created database and added records.")
             except:
-                raise Exception(
-                    f'Either table creation or book insertion has failed.')
+                raise Exception(f"Either table creation or book insertion has failed.")
 
         else:
             try:
                 super().query_db(book_add)
-                print('Successfuly updated the records.')
+                print("Successfuly updated the records.")
             except:
-                raise Exception(
-                    f'Could not add the book.')
+                raise Exception(f"Could not add the book.")
+
+    def display(self, query: str) -> None:
+        """
+        Function for displaying the results of a search.
+        """
+        if query is None:
+            raise Exception("Please provide book title.")
+        else:
+            df = super().to_df(query=query)
+
+        html = df.to_html()
+
+        text_file = open("templates/test.html", "a")
+        text_file.write(html)
+        text_file.write("</html>")
+        text_file.close()
