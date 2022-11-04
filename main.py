@@ -16,7 +16,14 @@ def result():
         {"Title": "title2", "Author": "author2"},
     ]
 
-    return flask.render_template("result.html", items=items)
+    if flask.request.form.get("search_bar") is None:
+        return """
+                <h1>No results</h1>
+                <a href="{{ url_for('index') }}">Go to the home page </a>
+                <a href="{{ url_for('add_book') }}">Add another book</a>
+                """
+    else:
+        return flask.render_template("result.html", items=items)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
