@@ -1,20 +1,20 @@
 import sqlite3
 import pandas as pd
+from typing import List, Tuple
 
 
 class DataBase:
-
     def connect(self) -> sqlite3.Connection:
         """
         Function for creating a connection to the database.
         Returns sqlite3 connection
         """
-        path = 'warehouse/storage.db'
+        path = "warehouse/storage.db"
         con = sqlite3.connect(path)
 
         return con
 
-    def query_db(self, query: str):
+    def query_db(self, query: str) -> List[Tuple]:
         con = self.connect()
         cur = con.cursor()
 
@@ -25,7 +25,7 @@ class DataBase:
             con.close()
             return res
         except:
-            raise Exception('Unable to execute the query.')
+            raise Exception("Unable to execute the query.")
 
     def to_df(self, query) -> pd.DataFrame:
         """
