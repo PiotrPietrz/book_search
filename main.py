@@ -34,8 +34,8 @@ def form_submit():
 
     return """
     <h1>Form submitted</h1>
-    <a href="http://127.0.0.1:5000/#home">Go to the home page </a>
-    <a href="http://127.0.0.1:5000/add_book">Add another book</a>
+    <a href="{{ url_for('index') }}">Go to the home page </a>
+    <a href="{{ url_for('add_book') }}">Add another book</a>
     """
 
 
