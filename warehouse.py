@@ -1,4 +1,5 @@
 from database import DataBase
+from typing import List, Dict
 
 
 class Warehouse(DataBase):
@@ -42,18 +43,9 @@ class Warehouse(DataBase):
             except:
                 raise Exception(f"Could not add the book.")
 
-    def display(self, query: str) -> None:
+    def display(self, query: str) -> List[Dict]:
         """
-        Function for displaying the results of a search.
+        Function gathering requested data.
+        Returns a list of dictionaries
         """
-        if query is None:
-            raise Exception("Please provide book title.")
-        else:
-            df = super().to_df(query=query)
-
-        html = df.to_html()
-
-        text_file = open("templates/test.html", "a")
-        text_file.write(html)
-        text_file.write("</html>")
-        text_file.close()
+        pass
