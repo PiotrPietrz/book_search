@@ -5,14 +5,18 @@ app = flask.Flask(__name__)
 
 
 @app.route("/")
-def home():
+def index():
     return flask.render_template("index.html")
 
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
+    items = [
+        {"Title": "title1", "Author": "author1"},
+        {"Title": "title2", "Author": "author2"},
+    ]
 
-    return flask.render_template("test.html")
+    return flask.render_template("result.html", items=items)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
