@@ -29,8 +29,9 @@ def form_submit():
     whs = Warehouse()
     author = flask.request.form.get("author")
     title = flask.request.form.get("title")
+    genre = flask.request.form.get("genre")
 
-    whs.add_book(title=title, author=author)
+    whs.add_book(title=title, author=author, genre=genre)
 
     return flask.render_template("submission.html")
 

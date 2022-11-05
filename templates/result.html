@@ -14,6 +14,7 @@
                 <tr style="text-align: right;">
                     <th>Title</th>
                     <th>Author</th>
+                    <th>Genre</th>
                 </tr>
             </thead>
             {% for item in items %}
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{ item.Title }}</td>
                     <td>{{ item.Author }}</td>
+                    <td>{{ item.Genre }}</td>
                 </tr>
             </tbody>
             {% endfor %}

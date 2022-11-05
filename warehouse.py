@@ -3,12 +3,12 @@ from typing import List, Dict
 
 
 class Warehouse(DataBase):
-    def __init__(self, title: str = None, author: str = None) -> None:
+    def __init__(self, title: str = None, author: str = None, genre: str = None) -> None:
         self.title = title
         self.author = author
         super().__init__()
 
-    def add_book(self, title, author) -> None:
+    def add_book(self, title, author, genre) -> None:
         """
         Function for adding a book to the database.
         By default, the table for storing the books will be called 'books'.
@@ -19,13 +19,14 @@ class Warehouse(DataBase):
         create_table = f"""
                 CREATE TABLE books (
                     title TEXT,
-                    author TEXT
+                    author TEXT,
+                    genre TEXT
                 );
                 """
 
         book_add = f"""
                 INSERT INTO books
-                VALUES ('{title}', '{author}')
+                VALUES ('{title}', '{author}', '{genre}')
                 """
         if not super().table_exists("books"):
 
@@ -34,7 +35,8 @@ class Warehouse(DataBase):
                 super().query_db(book_add)
                 print("Successfuly created database and added records.")
             except:
-                raise Exception(f"Either table creation or book insertion has failed.")
+                raise Exception(
+                    f"Either table creation or book insertion has failed.")
 
         else:
             try:
@@ -49,11 +51,5 @@ class Warehouse(DataBase):
         in the html template.
         Returns a list of dictionaries.
         """
-        # query = f"""
-        #     SELECT
-        #     *
-        #     FROM books
-        #     WHERE title LIKE '{title}'
-        #     OR author LIKE '{author}'
-        # """
+
         pass
