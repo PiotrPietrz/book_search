@@ -32,11 +32,7 @@ def form_submit():
 
     whs.add_book(title=title, author=author)
 
-    return """
-    <h1>Form submitted</h1>
-    <a href="{{ url_for('index') }}">Go to the home page </a>
-    <a href="{{ url_for('add_book') }}">Add another book</a>
-    """
+    return flask.render_template("submission.html")
 
 
 if __name__ == "__main__":
