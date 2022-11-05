@@ -53,10 +53,10 @@ class Warehouse(DataBase):
         """
 
         (author, genre) = super().query_db(
-            f"""SELECT author, genre FROM books WHERE title like '%{title}%' """)[0]
+            f"""SELECT author, genre FROM books WHERE title LIKE '%{title}%' """)[0]
 
         search = super().query_db(
-            f"""SELECT * FROM books WHERE genre like '%{genre}%' AND author not like '%{author}%' """)
+            f"""SELECT * FROM books WHERE genre LIKE '%{genre}%' AND author NOT LIKE'%{author}%' """)
 
         # generating a list of dictionaries to be passed to html
         items = []
