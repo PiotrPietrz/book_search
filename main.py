@@ -3,6 +3,8 @@ from warehouse import Warehouse
 
 app = flask.Flask(__name__)
 
+whs = Warehouse()
+
 
 @app.route("/")
 def index():
@@ -11,10 +13,9 @@ def index():
 
 @app.route("/result", methods=["GET", "POST"])
 def result():
-    items = [
-        {"Title": "title1", "Author": "author1"},
-        {"Title": "title2", "Author": "author2"},
-    ]
+    title = flask.request.form.get("search_bar")
+
+    items = whs.display(title=title)
 
     return flask.render_template("result.html", items=items)
 
@@ -26,7 +27,7 @@ def add_book():
 
 @app.route("/submission", methods=["GET", "POST"])
 def form_submit():
-    whs = Warehouse()
+
     author = flask.request.form.get("author")
     title = flask.request.form.get("title")
     genre = flask.request.form.get("genre")

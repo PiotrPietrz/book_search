@@ -45,11 +45,27 @@ class Warehouse(DataBase):
             except:
                 raise Exception(f"Could not add the book.")
 
-    def display(self, title: str = None, author: str = None) -> List[Dict]:
+    def display(self, title: str = None) -> List[Dict]:
         """
         Function gathering requested data. The data is then passed to jinja for loop
         in the html template.
         Returns a list of dictionaries.
         """
 
-        pass
+        (author, genre) = super().query_db(
+            f"""SELECT author, genre FROM books WHERE title like '%{title}%' """)[0]
+
+        search = super().query_db(
+            f"""SELECT * FROM books WHERE genre like '%{genre}%' AND author not like '%{author}%' """)
+
+        # generating a list of dictionaries to be passed to html
+        items = []
+        for result in enumerate(search):
+            d = {}
+            d['title'] = result[1][0]
+            d['author'] = result[1][1]
+            d['genre'] = result[1][2]
+
+            items.append(d)
+
+        return items
