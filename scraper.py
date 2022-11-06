@@ -8,7 +8,7 @@ class Scraper:
     def __init__(self, tag: str = None) -> None:
         self.tag = tag
 
-    def recommendations(self, tag: str):
+    def recommendations(self, tag: str) -> pd.DataFrame:
         response = requests.get(f'https://lubimyczytac.pl/ksiazki/t/{tag}')
 
         soup = BeautifulSoup(response.content, "html.parser")
