@@ -3,7 +3,9 @@ from typing import List, Dict
 
 
 class Warehouse(DataBase):
-    def __init__(self, title: str = None, author: str = None, genre: str = None) -> None:
+    def __init__(
+        self, title: str = None, author: str = None, genre: str = None
+    ) -> None:
         self.title = title
         self.author = author
         super().__init__()
@@ -35,8 +37,7 @@ class Warehouse(DataBase):
                 super().query_db(book_add)
                 print("Successfuly created database and added records.")
             except:
-                raise Exception(
-                    f"Either table creation or book insertion has failed.")
+                raise Exception(f"Either table creation or book insertion has failed.")
 
         else:
             try:
@@ -53,18 +54,20 @@ class Warehouse(DataBase):
         """
 
         (author, genre) = super().query_db(
-            f"""SELECT author, genre FROM books WHERE title LIKE '%{title}%' """)[0]
+            f"""SELECT author, genre FROM books WHERE title LIKE '%{title}%' """
+        )[0]
 
         search = super().query_db(
-            f"""SELECT * FROM books WHERE genre LIKE '%{genre}%' AND author NOT LIKE'%{author}%' """)
+            f"""SELECT * FROM books WHERE genre LIKE '%{genre}%' AND author NOT LIKE'%{author}%' """
+        )
 
         # generating a list of dictionaries to be passed to html
         items = []
         for result in enumerate(search):
             d = {}
-            d['title'] = result[1][0]
-            d['author'] = result[1][1]
-            d['genre'] = result[1][2]
+            d["title"] = result[1][0]
+            d["author"] = result[1][1]
+            d["genre"] = result[1][2]
 
             items.append(d)
 

@@ -28,27 +28,27 @@
             {% endfor %}
         </table>
     </div>
-    <!-- <h2>These are additional recommendations we found on the web</h2>
+    <h2>These are additional recommendations we found on the web</h2>
     <div style="width: 100%; margin: auto">
         <table border="1" class="recommendations">
             <thead>
                 <tr style="text-align: right;">
                     <th>Title</th>
                     <th>Author</th>
-                    <th>Genre</th>
+                    <th>Link</th>
                 </tr>
             </thead>
-            {% for item in items %}
+            {% for rec in recs %}
             <tbody>
                 <tr>
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.author }}</td>
-                    <td>{{ item.genre }}</td>
+                    <td>{{ rec.title }}</td>
+                    <td>{{ rec.author }}</td>
+                    <td>{{ rec.link }}</td>
                 </tr>
             </tbody>
             {% endfor %}
         </table>
-    </div> -->
+    </div>
 </body>
 
 </html>

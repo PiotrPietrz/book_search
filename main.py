@@ -1,9 +1,11 @@
 import flask
 from warehouse import Warehouse
+from scraper import Scraper
 
 app = flask.Flask(__name__)
 
 whs = Warehouse()
+scr = Scraper()
 
 
 @app.route("/")
@@ -16,8 +18,8 @@ def result():
     title = flask.request.form.get("search_bar")
 
     items = whs.display(title=title)
-
-    return flask.render_template("result.html", items=items)
+    recs = scr.display(title=title)
+    return flask.render_template("result.html", items=items, recs=recs)
 
 
 @app.route("/add_book", methods=["GET", "POST"])
