@@ -21,6 +21,8 @@ Run ```docker build --tag book .```
 
 Run ```docker run -it -p 5001:5000 book```
 
+Access the website by putting ```http://localhost:5001```
+
 ## Notes
 
 This project is focused mainly on the backend as part of development towards Python programming. If you're interested in creating a front-end styling, feel free to fork the repo and create pull request. 
