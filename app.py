@@ -39,5 +39,13 @@ def form_submit():
     return flask.render_template("submission.html")
 
 
+@app.route("/all_books", methods=["GET", "POST"])
+def all_books():
+
+    items = whs.display(all=True)
+
+    return flask.render_template("all_books.html", items=items)
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
