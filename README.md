@@ -15,12 +15,14 @@ For now it work only if you enter a title that is in the database. The database 
 
 In the project folder, create a folder ```warehouse``` and inside of ```warehouse``` create ```archive```.
 
-The project uses the following python libraries:  
-:ballot_box_with_check: ```flask```  
-:ballot_box_with_check: ```typing```  
-:ballot_box_with_check: ```sqlite3```  
-:ballot_box_with_check: ```pandas```
+## Spinning up the container 
+
+Run ```docker build --tag book .```
+
+Run ```docker run -it -p 5001:5000 book```
+
+Access the website by putting ```http://localhost:5001```
 
 ## Notes
 
-This project is focused mainly on the backend as part of development towards Python programming. If you're interested in creating a front-end styling, feel free to fork the repo and create pull request. It will be further developed to provide better functionalities. Should the need arise, the project will be dockerized.
+This project is focused mainly on the backend as part of development towards Python programming. If you're interested in creating a front-end styling, feel free to fork the repo and create pull request. 
