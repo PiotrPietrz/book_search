@@ -19,11 +19,39 @@ In the project folder, create a folder ```warehouse``` and inside of ```warehous
 
 ## How to access the website
 
-Run ```docker build --tag book .```
+### Running for the first time
 
-Run ```docker compose up -d```
+Clone the repository:  
+```git clone https://github.com/PiotrPietrz/book_search.git```
 
-Access the website via ```http://localhost:5001```
+Change to dev:  
+```git checkout dev```
+
+Spin up the docker container:  
+```docker build --tag book .```
+
+```docker compose up -d```
+
+Access the website:  
+```http://localhost:5001```
+
+### Update for changes
+
+Save all the changes in the repository.   
+
+Stop the current container:  
+```docker compose down```
+
+Clear the existing images:  
+```docker image prune -a```
+
+Spin up the docker container again:  
+```docker build --tag book .```
+
+```docker compose up -d```
+
+Refresh the website:  
+```http://localhost:5001```
 
 ## Notes
 
