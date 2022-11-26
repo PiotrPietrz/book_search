@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
 from typing import List, Tuple
+from shutil import copy2
+from datetime import datetime
 
 
 class DataBase:
@@ -60,5 +62,11 @@ class DataBase:
             return True
 
     @classmethod
-    def create_backup(cls):
-        pass
+    def create_backup(cls) -> None:
+        """
+        Function for creating a backup of the db.
+        Returns None.
+        """
+
+        copy2(src='warehouse/storage.db',
+              dst=f"warehouse/archive/{datetime.now().strftime('%Y%m%d%H%M')}.db")
