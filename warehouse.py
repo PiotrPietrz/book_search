@@ -3,11 +3,16 @@ from typing import List, Dict
 
 
 class Warehouse(DataBase):
+    """
+    Class for managing the warehouse and process existing records.
+    """
+
     def __init__(
         self, title: str = None, author: str = None, genre: str = None
     ) -> None:
         self.title = title
         self.author = author
+        self.genre = genre
         super().__init__()
 
     def add_book(self, title, author, genre) -> None:
@@ -51,6 +56,7 @@ class Warehouse(DataBase):
         """
         Function gathering requested data. The data is then passed to jinja for loop
         in the html template.
+        Set all = True if you want to see all of the table contents.
         Returns a list of dictionaries.
         """
 

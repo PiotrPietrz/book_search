@@ -4,6 +4,10 @@ from typing import List, Tuple
 
 
 class DataBase:
+    """
+    Class for managing sqlite3 database
+    """
+
     def connect(self) -> sqlite3.Connection:
         """
         Function for creating a connection to the database.
@@ -15,6 +19,9 @@ class DataBase:
         return con
 
     def query_db(self, query: str) -> List[Tuple]:
+        """
+        Function for processing a db query. Returns a list of tuples.
+        """
         con = self.connect()
         cur = con.cursor()
 
@@ -36,7 +43,6 @@ class DataBase:
     def table_exists(self, table_name: str) -> bool:
         """
         Checks if a table is already in the database.
-        table_name: the name of the table that should be checked
         Returns boolean
         """
 
