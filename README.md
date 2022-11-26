@@ -13,16 +13,16 @@ For now it works only if you enter a title that is in the database. The database
 
 Additionaly it pulls 20 recommendations from ```lubimyczytac.pl``` which is the largest book database in Poland at the moment. The search is based on the books' tags.
 
-## Setting up the database
-
-In the project folder, create a folder ```warehouse``` and inside of ```warehouse``` create ```archive```.
-
 ## How to access the website
 
 ### Running for the first time
 
 Clone the repository:  
 ```git clone https://github.com/PiotrPietrz/book_search.git```
+
+Setting up the database
+
+In ```warehouse``` create ```archive```.
 
 Change to dev:  
 ```git checkout dev```
