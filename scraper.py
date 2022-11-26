@@ -1,12 +1,15 @@
 import pandas as pd
 import requests
-import pandas as pd
 from bs4 import BeautifulSoup
 from database import DataBase
 from typing import List, Dict
 
 
 class Scraper(DataBase):
+    """
+    Class for Scraping lubimyczytac.pl website.
+    """
+
     def __init__(self, tag: str = None) -> None:
         self.tag = tag
 
@@ -19,7 +22,8 @@ class Scraper(DataBase):
 
         soup = BeautifulSoup(response.content, "html.parser")
         result = soup.find_all("a", class_="authorAllBooks__singleTextTitle")
-        authors_htmls = soup.find_all("div", class_="authorAllBooks__singleTextAuthor")
+        authors_htmls = soup.find_all(
+            "div", class_="authorAllBooks__singleTextAuthor")
 
         links = ["https://lubimyczytac.pl" + res.get("href") for res in result]
         authors = [author.text for author in authors_htmls]
