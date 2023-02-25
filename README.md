@@ -15,43 +15,7 @@ Additionaly it pulls 20 recommendations from ```lubimyczytac.pl``` which is the 
 
 ## How to access the website
 
-### Running for the first time
-
-Clone the repository:  
-```git clone https://github.com/PiotrPietrz/book_search.git```
-
-Setting up the database
-
-In ```warehouse``` create ```archive```.
-
-Change to dev:  
-```git checkout dev```
-
-Spin up the docker container:  
-```docker build --tag book .```
-
-```docker compose up -d```
-
-Access the website:  
-```http://localhost:5001```
-
-### Update for changes
-
-Save all the changes in the repository.   
-
-Stop the current container:  
-```docker compose down```
-
-Clear the existing images:  
-```docker image prune -a```
-
-Spin up the docker container again:  
-```docker build --tag book .```
-
-```docker compose up -d```
-
-Refresh the website:  
-```http://localhost:5001```
+*TBD*
 
 ## Notes
 

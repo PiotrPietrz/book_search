@@ -1,12 +1,8 @@
-# syntax=docker/dockerfile:1
+FROM python
 
-FROM python:3.10-slim
+WORKDIR /opt/demo/
+COPY /app .
 
-WORKDIR /book_search
+RUN pip install -r requirements.txt
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-
-COPY . .
-
-CMD ["flask", "run", "-h", "0.0.0.0", "-p", "5000"]
+ENTRYPOINT python app.py
