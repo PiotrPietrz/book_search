@@ -15,8 +15,12 @@ Additionaly it pulls 20 recommendations from ```lubimyczytac.pl``` which is the 
 
 ## How to access the website
 
-*TBD*
+Build the docker image  
+```docker build -t book .```
+
+Spin up the container  
+``` docker run -d --name book_website -p 80:80 book```
 
 ## Notes
 
-This project is focused mainly on the backend as part of development towards Python programming. If you're interested in creating a front-end styling, feel free to fork the repo and create pull request. 
+This project is focused mainly on the backend as part of development towards Python programming. If you're interested in creating a front-end styling, feel free to contribute.
